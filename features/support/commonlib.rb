@@ -19,3 +19,11 @@ def fill_in_visible_element(xpath, text)
   modify_xpath = xpath.delete_suffix("]")
   find(:xpath, "#{modify_xpath} #{VISIBLE_ELEMENT}]").fill_in with: text
 end
+
+def check_text_present(text)
+  raise 'Text not found' unless has_text?(text)
+end
+
+def check_element_present(xpath)
+  find(:xpath, xpath)
+end

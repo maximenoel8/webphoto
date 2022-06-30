@@ -50,7 +50,8 @@ Then(/^I create a worktype with name "([^"]*)", category parent "([^"]*)" and pi
   select(parent_name, from: 'parent')
   find(:xpath, "//a[@id='mtheme_upload_work_image']").click()
   fill_in('media-search-input', with: image)
-  has_content?('Affichage de 1 médias sur 1')
+  # has_content?('Affichage de 1 médias sur 1')
+  check_text_present('Affichage de 1 médias sur 1')
   find(:xpath, "//li[@class='attachment save-ready']").click()
   find(:xpath,"//button[text()='Sélectionner']").click()
   click_button('submit')
@@ -58,4 +59,4 @@ end
 
 
 #  Amazon Linux test
-# And(/^ "([^"]*)" "$/) do | |
+# And(/^ "([^"]*)"$/) do | |

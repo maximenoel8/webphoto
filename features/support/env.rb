@@ -17,3 +17,5 @@ module Helpers
   end
 end
 World(Capybara::DSL, Helpers)
+
+Capybara.ignore_hidden_elements = true

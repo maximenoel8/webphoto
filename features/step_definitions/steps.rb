@@ -57,6 +57,13 @@ Then(/^I create a worktype with name "([^"]*)", category parent "([^"]*)" and pi
   click_button('submit')
 end
 
+And(/^I register the changes from the block$/) do
+  click_on_visible_element("//div[@aria-hidden='false']//button[text()='Done']")
+end
+
+And(/^I publish the page$/) do
+  click_on_visible_element("//input[@id='publish']")
+end
 
 #  Amazon Linux test
 # And(/^ "([^"]*)"$/) do | |

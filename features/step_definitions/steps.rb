@@ -57,51 +57,5 @@ Then(/^I create a worktype with name "([^"]*)", category parent "([^"]*)" and pi
 end
 
 
-And(/^I create a new project item with title "([^"]*)" link to worktype "([^"]*)" and picture "([^"]*)"$/) do | title, worktype, image |
-  visit "#{SITE}/post-new.php?post_type=mtheme_portfolio"
-  fill_in('title', with: title)
-  find(:xpath, "//label[@class='selectit' and contains(.,'#{worktype}')]").click()
-  find(:xpath,"//span[@class='mtheme-pb-choice mtheme-pb-yes']").click()
-  has_content?('Using Page Builder.')
-  #clear
-  find(:xpath,"//a[@class='emptyTemplates']").click()
-
-  #import block
-  find(:id,'import-a-block').click()
-  find(:xpath,"//div[@id='mtheme-pb-import-a-block']//textarea").fill_in with: BLOCK_IMPORT
-  find(:xpath,"//button[@class='button button-primary' and text()='Import']").click()
-
-  # Open Hero image block edit table
-  # has_xpath?("//li[@title='Add a Hero Image']")
-  find(:xpath, "//li[@title='Add a Hero Image' and contains(@class,'ui-sortable-handle')]").click()
-  find(:xpath, "//li[@title='Add a Hero Image' and contains(@class,'ui-sortable-handle')]//a[@class='block-edit']").click()
-  sleep 5
-
-  step %(I update the picture "#{image}" from hero image")
-  step %(I change the hero title by "#{title}")
-
-  find(:xpath, "//img[@data-value='edge-to-edge']")
-  sleep 5
-
-end
-
-
-And(/^I update the picture "([^"]*)" from hero image"$/) do |  image |
-  # Upload picture to hero block
-  find(:xpath, "//div[@aria-hidden='false']//a[@class='aq_upload_button button']").click()
-  fill_in_visible_element("//input[@id='media-search-input']", image)
-  has_content?('Affichage de 1 médias sur 1')
-  click_on_visible_element("//li[@class='attachment save-ready']")
-  click_on_visible_element("//button[text()='Sélectionner']")
-  sleep 5
-end
-
-And(/^I change the hero title by "([^"]*)""$/) do |  title |
-  # Change title hero image
-  find(:xpath, "//div[@aria-hidden='false']//label[text()='Intensity for Text and ui elements']").visible?
-  execute_script("document.querySelector(\"div[aria-hidden='false'] div.sortable-handle a\",':before').click()")
-  fill_in("aq_blocks[aq_block_2][tabs][1][title]", with: title)
-  fill_in("aq_blocks[aq_block_2][tabs][1][subtitle]", with:  '  ')
-  click_on_visible_element("//div[@aria-hidden='false']//button[text()='Done']")
-end
 #  Amazon Linux test
+# And(/^ "([^"]*)" "$/) do | |

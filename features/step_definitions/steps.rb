@@ -6,8 +6,8 @@
 
 Given(/^I am authorized admin user$/) do
   visit SITE
-  fill_in('user_login', with: $website_configuration['website']['admin_login'])
-  fill_in('user_pass', with: $website_configuration['website']['admin_password'])
+  fill_in('user_login', with: $admin)
+  fill_in('user_pass', with: $password)
   click_button_and_wait('wp-submit', match: :first)
   find(:xpath, "//div[@class='wp-menu-name' and text()='Tableau de bord']").visible?
 end

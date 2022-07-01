@@ -11,6 +11,7 @@ Capybara.default_driver = :selenium
 #Set default selector as css
 Capybara.default_selector = :id
 #Syncronization related settings
+Capybara.ignore_hidden_elements = true
 module Helpers
   def without_resynchronize
     page.driver.options[:resynchronize] = false
@@ -20,6 +21,8 @@ module Helpers
 end
 World(Capybara::DSL, Helpers)
 
-Capybara.ignore_hidden_elements = true
+login_information = YAML.load_file('login.yaml')
+$admin = login_information['website']['admin_login']
+$password = login_information['website']['admin_password']
 
 $website_configuration = YAML.load_file('configuration.yaml')

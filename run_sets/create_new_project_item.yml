@@ -1,0 +1,5 @@
+# Steps to crete new thumbnails grid project item
+- features/upload_images.feature
+- features/create_worktype.feature
+- features/create_projectitem.feature
+- features/update_maingallery.feature

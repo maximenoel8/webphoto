@@ -69,8 +69,8 @@ And(/^I change the hero image block title$/) do
   # Change title hero image
   find(:xpath, "//div[@aria-hidden='false']//label[text()='Intensity for Text and ui elements']").visible?
   execute_script("document.querySelector(\"div[aria-hidden='false'] div.sortable-handle a\",':before').click()")
-  fill_in("aq_blocks[aq_block_2][tabs][1][title]", with: title)
-  fill_in("aq_blocks[aq_block_2][tabs][1][subtitle]", with:  '  ')
+  fill_in("aq_blocks[aq_block_2][tabs][1][title]", with: $website_configuration['project_items']['hero_image']['title'])
+  fill_in("aq_blocks[aq_block_2][tabs][1][subtitle]", with: $website_configuration['project_items']['hero_image']['subtitle'])
 end
 
 When(/^I open the thumbnails grid block$/) do

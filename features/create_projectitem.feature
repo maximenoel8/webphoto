@@ -27,3 +27,6 @@ Feature: Create new project item
 
   Scenario: Publish the new project item page
     And I publish the page
+
+  Scenario: Login out
+    And I logout

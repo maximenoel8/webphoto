@@ -11,3 +11,6 @@ Feature: Create a new work type that will be use to identify the new project ite
     And I update the work type description field
     And I choose the work type image
     And I register the work type changes
+
+  Scenario: Login out
+    And I logout

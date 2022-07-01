@@ -18,7 +18,10 @@ end
 
 And(/^I publish the page$/) do
   click_on_visible_element("//input[@id='publish']")
+  check_text_present('Page mise à jour.')
 end
 
-#  Amazon Linux test
-# And(/^ "([^"]*)"$/) do | |
+And(/^I logout$/) do
+  logout= find(:xpath, "//li[@id='wp-admin-bar-logout']//a[text()='Se déconnecter']", visible: :all)[:href]
+  visit logout
+end

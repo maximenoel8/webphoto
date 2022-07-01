@@ -10,3 +10,6 @@ Feature: Update main gallery
     And I add the work type to list
     And I register the changes from the block
     And I publish the page
+
+  Scenario: Login out
+    And I logout

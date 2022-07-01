@@ -1,0 +1,57 @@
+## -----------------------------------------------
+#
+#  Fichier de description des elements pour:
+#   - import de photos
+#   - creation d'un work type
+#   - creation d'un project item
+#   - ajout du project item a une galerie
+#
+#  Values with a comment starting with ** are really important
+#
+# /!\  CAUTION : Can not add more than 80 pictures at once /!\
+#
+## -----------------------------------------------
+# Dossier contenant les photos
+environment :
+  root : /home/home/Pictures/wordpress
+
+image_import :
+  # La legende permet de retrouver les photos faisant parties du meme groupe
+  legend : wordpress
+
+work_type :
+  name : test
+  # L’identifiant est la version normalisée du nom. Il ne contient généralement que des lettres minuscules non accentuées, des chiffres et des traits d’union.
+  # Remplacer tout en minuscule et espace par `-`
+  # ** Valeur utilisee pour mettre a jour la gallery
+  slug : test
+  # Par default pas de parent (Aucun),
+  # si on utilise un `parent root` ( plus haut niveau ) pas d'espace au debut
+  # sinon mettre 3 espaces avant le nom '   child1'
+  # il faut utiliser le nom du work type. PAS son slug
+  parent : 'Aucun'
+  description : '    '
+  image : Image test
+
+project_items :
+  title : Project test
+  # ** This image will display on the main page gallery
+  image : Image Test
+  hero_image :
+    # ** This title will be written on the project item header picture
+    tile : Hero name title
+    subtitle : '  '
+    # ** This image will be used as a project item header
+    image : Amazon Linux test
+
+gallery :
+  # ** Important
+  name : New Zealand
+
+
+
+
+
+
+
+

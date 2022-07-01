@@ -25,11 +25,11 @@ And(/^I update the work type description field$/) do
 end
 
 And(/^I choose the work type image$/) do
-  find(:xpath, "//a[@id='mtheme_upload_work_image']").click()
+  find(:xpath, "//a[@id='mtheme_upload_work_image']").click
   fill_in('media-search-input', with: $website_configuration['work_type']['image'])
   wait_spinner
-  find(:xpath, "//li[@class='attachment save-ready']").click()
-  find(:xpath,"//button[text()='Sélectionner']").click()
+  find(:xpath, "//li[@class='attachment save-ready']").click
+  find(:xpath, "//button[text()='Sélectionner']").click
 end
 
 And(/^I register the work type changes$/) do

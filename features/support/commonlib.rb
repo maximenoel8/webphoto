@@ -29,9 +29,7 @@ def check_element_present(xpath)
 end
 
 def wait_spinner
-  begin
+  unless page.all(:xpath, "//div[@class='media-modal-content']//span[@class='spinner is-active']", visible: true, wait: 1).empty?
     find(:xpath, "//div[@class='media-modal-content']//span[@class='spinner is-active']", visible: false)
-  rescue Capybara::ElementNotFound
-    puts "Spinner element not found but keep going"
   end
 end

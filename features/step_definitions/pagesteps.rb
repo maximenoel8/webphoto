@@ -25,5 +25,3 @@ And(/^I add the work type to list$/) do
   new_value = "#{current_values},#{$website_configuration['work_type']['slug']}"
   fill_in_visible_element(work_type_list_element, new_value)
 end
-
-# godley-head-walk,akaora,arthurs-pass,kaikoura,lake-tekapo,westcoast,wanaka,mount cook, lewis pass, malborough , rainy-walk-botanic-garden,milford-sound

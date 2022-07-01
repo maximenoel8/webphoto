@@ -25,4 +25,4 @@ login_information = YAML.load_file('login.yaml')
 $admin = login_information['website']['admin_login']
 $password = login_information['website']['admin_password']
 
-$website_configuration = YAML.load_file('configuration.yaml')
+$website_configuration = YAML.load_file('configuration.yml')

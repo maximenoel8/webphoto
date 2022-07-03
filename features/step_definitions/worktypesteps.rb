@@ -28,7 +28,7 @@ And(/^I choose the work type image$/) do
   find(:xpath, "//a[@id='mtheme_upload_work_image']").click
   fill_in('media-search-input', with: $website_configuration['work_type']['image'])
   wait_spinner
-  find(:xpath, "//li[@class='attachment save-ready']").click
+  step %(I select the first image)
   find(:xpath, "//button[text()='Sélectionner']").click
 end
 

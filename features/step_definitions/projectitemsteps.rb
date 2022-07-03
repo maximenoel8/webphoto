@@ -25,7 +25,7 @@ And(/^I change 'Image mise en avant' of the project item$/) do
   wait_spinner
   fill_in_visible_element("//input[@id='media-search-input']", $website_configuration['project_items']['image'])
   wait_spinner
-  click_on_visible_element("//li[@class='attachment save-ready']")
+  step %(I select the first image)
   click_on_visible_element("//button[text()='Définir l’image mise en avant']")
 end
 
@@ -65,7 +65,7 @@ Then(/^I update the hero image block picture$/) do
   find(:xpath, "//div[@aria-hidden='false']//a[@class='aq_upload_button button']").click
   fill_in_visible_element("//input[@id='media-search-input']", $website_configuration['project_items']['hero_image']['image'])
   wait_spinner
-  click_on_visible_element("//li[@class='attachment save-ready']")
+  step %(I select the first image)
   click_on_visible_element("//button[text()='Sélectionner']")
 end
 

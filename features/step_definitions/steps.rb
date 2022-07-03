@@ -30,3 +30,7 @@ And(/^I logout$/) do
   logout= find(:xpath, "//li[@id='wp-admin-bar-logout']//a[text()='Se déconnecter']", visible: :all)[:href]
   visit logout
 end
+
+And(/^I select the first image$/) do
+  find(:xpath, "//li[@class='attachment save-ready']", match: :first).click
+end

@@ -8,6 +8,10 @@ When(/^I create a new project item$/) do
   visit "#{SITE}/post-new.php?post_type=mtheme_portfolio"
 end
 
+When(/^I open the project item page$/)do
+  visit "#{SITE}/edit.php?post_type=mtheme_portfolio"
+end
+
 Then(/^I change the project title$/) do
   fill_in('title', with: $website_configuration['project_items']['title'])
 end
@@ -106,5 +110,11 @@ And(/^I add to the gallery my previously imported pictures with configure legend
   click_on_visible_element("//button[text()='Ajouter à la galerie']")
   click_on_visible_element("//button[text()='Mettre à jour la galerie']")
   click_on_visible_element("//button[text()='Done']")
-  click_on_visible_element("//input[@id='save-post']")
+  # click_on_visible_element("//input[@id='save-post']")
+end
+
+When(/^I select the page item$/) do
+  fill_in('post-search-input', with: $website_configuration['work_type']['name'])
+  click_button('search-submit')
+  click_on_visible_element("//tr[contains(@class,'types-#{$website_configuration['work_type']['slug']}')]//a[@class='row-title']")
 end

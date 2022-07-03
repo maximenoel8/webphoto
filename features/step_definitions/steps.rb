@@ -21,6 +21,11 @@ And(/^I publish the page$/) do
   check_text_present('Page mise à jour.')
 end
 
+And(/^I update the page$/) do
+  click_on_visible_element("//input[@id='publish']")
+  check_text_present('Article mis à jour.')
+end
+
 And(/^I logout$/) do
   logout= find(:xpath, "//li[@id='wp-admin-bar-logout']//a[text()='Se déconnecter']", visible: :all)[:href]
   visit logout

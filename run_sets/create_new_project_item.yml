@@ -1,4 +1,4 @@
-# Steps to crete new thumbnails grid project item
+# Steps to create new thumbnails grid project item
 - features/upload_images.feature
 - features/create_worktype.feature
 - features/create_projectitem.feature

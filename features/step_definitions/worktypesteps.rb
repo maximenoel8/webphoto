@@ -18,6 +18,7 @@ end
 
 And(/^I select the work type parent category$/) do
   select($website_configuration['work_type']['parent'], from: 'parent')
+  # puts find(:id, "parent").value
 end
 
 And(/^I update the work type description field$/) do

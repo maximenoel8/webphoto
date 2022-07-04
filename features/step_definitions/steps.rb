@@ -13,17 +13,12 @@ Given(/^I am authorized admin user$/) do
 end
 
 And(/^I register the changes from the block$/) do
-  click_on_visible_element("//div[@aria-hidden='false']//button[text()='Done']")
+  click_on_first_visible_element("//div[@aria-hidden='false']//button[text()='Done']")
 end
 
-And(/^I publish the page$/) do
-  click_on_visible_element("//input[@id='publish']")
-  check_text_present('Page mise à jour.')
-end
-
-And(/^I update the page$/) do
-  click_on_visible_element("//input[@id='publish']")
-  check_text_present('Article mis à jour.')
+And(/^I publish the ([^"]*)$/) do | type |
+  click_on_first_visible_element("//input[@id='publish']")
+  check_text_present(EXPECTED_PUBLISH_TEXT[type])
 end
 
 And(/^I logout$/) do

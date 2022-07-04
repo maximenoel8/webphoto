@@ -10,8 +10,8 @@ end
 
 Then(/^I select the main gallery$/) do
   fill_in('post-search-input', with: $website_configuration['gallery']['name'])
-  click_on_visible_element("//input[@id='search-submit']")
-  click_on_visible_element("//a[contains(text(),'#{$website_configuration['gallery']['name']}')]")
+  click_on_first_visible_element("//input[@id='search-submit']")
+  click_on_first_visible_element("//a[contains(text(),'#{$website_configuration['gallery']['name']}')]")
 end
 
 And(/^I open the portfolio grid$/) do

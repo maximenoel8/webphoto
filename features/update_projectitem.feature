@@ -11,7 +11,7 @@ Feature: Update an existing project item
     And I add to the gallery my previously imported pictures with configure legend
 
   Scenario: Publish the new project item page
-    And I update the page
+    And I publish the project
 
   Scenario: Login out
     And I logout

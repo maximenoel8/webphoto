@@ -21,21 +21,21 @@ And(/^I select the work type$/) do
 end
 
 And(/^I change 'Image mise en avant' of the project item$/) do
-  click_on_visible_element("//a[@id='set-post-thumbnail']")
+  click_on_first_visible_element("//a[@id='set-post-thumbnail']")
   wait_spinner
   fill_in_visible_element("//input[@id='media-search-input']", $website_configuration['project_items']['image'])
   wait_spinner
   step %(I select the first image)
-  click_on_visible_element("//button[text()='Définir l’image mise en avant']")
+  click_on_first_visible_element("//button[text()='Définir l’image mise en avant']")
 end
 
 And(/^I change page style to edge to edge$/) do
-  click_on_visible_element("//img[@data-value='edge-to-edge']")
+  click_on_first_visible_element("//img[@data-value='edge-to-edge']")
   check_element_present("//img[@data-value='edge-to-edge' and contains(@class,'of-radio-img-selected')]")
 end
 
 And(/^I change gallery thumbnail link type to direct link lightbox$/) do
-  click_on_visible_element("//img[@data-value='Lightbox_DirectURL']")
+  click_on_first_visible_element("//img[@data-value='Lightbox_DirectURL']")
   check_element_present("//img[@data-value='Lightbox_DirectURL' and contains(@class,'of-radio-img-selected')]")
 end
 
@@ -66,7 +66,7 @@ Then(/^I update the hero image block picture$/) do
   fill_in_visible_element("//input[@id='media-search-input']", $website_configuration['project_items']['hero_image']['image'])
   wait_spinner
   step %(I select the first image)
-  click_on_visible_element("//button[text()='Sélectionner']")
+  click_on_first_visible_element("//button[text()='Sélectionner']")
 end
 
 And(/^I change the hero image block title$/) do
@@ -83,7 +83,7 @@ When(/^I open the thumbnails grid block$/) do
 end
 
 Then(/^I open add images tab$/) do
-  click_on_visible_element("//button[@class='mtheme-gallery-selector']")
+  click_on_first_visible_element("//button[@class='mtheme-gallery-selector']")
   wait_spinner
 end
 
@@ -97,7 +97,7 @@ And(/^I clean the images in thumbnails grid$/) do
 end
 
 And(/^I add to the gallery my previously imported pictures with configure legend$/) do
-  click_on_visible_element("//a[text()='Ajouter à la galerie']")
+  click_on_first_visible_element("//a[text()='Ajouter à la galerie']")
   wait_spinner
   fill_in('media-search-input', with: $website_configuration['image_import']['legend'])
   wait_spinner
@@ -107,14 +107,14 @@ And(/^I add to the gallery my previously imported pictures with configure legend
   images.each { |image|
     image.click
   }
-  click_on_visible_element("//button[text()='Ajouter à la galerie']")
-  click_on_visible_element("//button[text()='Mettre à jour la galerie']")
-  click_on_visible_element("//button[text()='Done']")
+  click_on_first_visible_element("//button[text()='Ajouter à la galerie']")
+  click_on_first_visible_element("//button[text()='Mettre à jour la galerie']")
+  click_on_first_visible_element("//button[text()='Done']")
   # click_on_visible_element("//input[@id='save-post']")
 end
 
 When(/^I select the page item$/) do
   fill_in('post-search-input', with: $website_configuration['work_type']['name'])
   click_button('search-submit')
-  click_on_visible_element("//tr[contains(@class,'types-#{$website_configuration['work_type']['slug']}')]//a[@class='row-title']")
+  click_on_first_visible_element("//tr[contains(@class,'types-#{$website_configuration['work_type']['slug']}')]//a[@class='row-title']")
 end

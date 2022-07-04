@@ -3,13 +3,14 @@ require 'capybara'
 require 'capybara/dsl'
 require 'rspec'
 require 'yaml'
+require 'whatlanguage'
 
 Capybara.run_server = false
 Capybara.default_max_wait_time = 20
 #Set default driver as Selenium
 Capybara.default_driver = :selenium
 #Set default selector as css
-Capybara.default_selector = :id
+Capybara.default_selector = :xpath
 #Syncronization related settings
 Capybara.ignore_hidden_elements = true
 module Helpers

@@ -10,9 +10,9 @@ def click_button_and_wait(locator = nil, **options)
 end
 
 
-def click_on_visible_element(xpath)
+def click_on_first_visible_element(xpath)
   modify_xpath = xpath.delete_suffix("]")
-  find(:xpath, "#{modify_xpath} #{VISIBLE_ELEMENT}]").click()
+  find(:xpath, "#{modify_xpath} #{VISIBLE_ELEMENT}]", match: :first).click()
 end
 
 def fill_in_visible_element(xpath, text)
@@ -32,4 +32,16 @@ def wait_spinner
   unless page.all(:xpath, "//div[@class='media-modal-content']//span[@class='spinner is-active']", visible: true, wait: 1).empty?
     find(:xpath, "//div[@class='media-modal-content']//span[@class='spinner is-active']", visible: false)
   end
+end
+
+def get_duplicate(list)
+  duplicate_element = list.find_all { |ip| list.count(ip) > 1 }
+
+  unique_duplicate_element = []
+  duplicate_element.each { |duplicate|
+    unless unique_duplicate_element.include?(duplicate)
+      unique_duplicate_element << duplicate
+    end
+  }
+  return unique_duplicate_element
 end
